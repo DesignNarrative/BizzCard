@@ -15,15 +15,17 @@ import {
   Mail,
   Globe,
   MapPin,
-  Star,
-  Camera,
-  ThumbsUp,
-  Briefcase,
-  Play,
-  AtSign,
   ExternalLink,
   Send
 } from 'lucide-react'
+import {
+  InstagramIcon,
+  FacebookIcon,
+  LinkedInIcon,
+  YouTubeIcon,
+  TwitterXIcon,
+  GoogleReviewsIcon,
+} from '@/components/icons/BrandIcons'
 import { SaveContactButton } from './SaveContactButton'
 import { ShareButton } from './ShareButton'
 import { EnquiryForm } from './EnquiryForm'
@@ -79,7 +81,7 @@ export function PublicCard({ card }: { card: Card }) {
       target: '_blank'
     },
     {
-      icon: Star,
+      icon: GoogleReviewsIcon,
       label: 'Reviews',
       url: card.google_reviews_url,
       type: 'reviews',
@@ -88,11 +90,11 @@ export function PublicCard({ card }: { card: Card }) {
   ].filter(action => action.url)
 
   const socials = [
-    { icon: Camera, url: card.instagram, type: 'instagram' },
-    { icon: ThumbsUp, url: card.facebook, type: 'facebook' },
-    { icon: Briefcase, url: card.linkedin, type: 'linkedin' },
-    { icon: Play, url: card.youtube, type: 'youtube' },
-    { icon: AtSign, url: card.twitter, type: 'twitter' },
+    { icon: InstagramIcon, url: card.instagram, type: 'instagram' },
+    { icon: FacebookIcon, url: card.facebook, type: 'facebook' },
+    { icon: LinkedInIcon, url: card.linkedin, type: 'linkedin' },
+    { icon: YouTubeIcon, url: card.youtube, type: 'youtube' },
+    { icon: TwitterXIcon, url: card.twitter, type: 'twitter' },
   ].filter(social => social.url)
 
   return (

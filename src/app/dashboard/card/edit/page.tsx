@@ -9,6 +9,14 @@ import { CARD_THEMES, type CardTheme } from '@/lib/constants'
 import { Save, Plus, Trash2, ArrowLeft, Loader2, Eye } from 'lucide-react'
 import Link from 'next/link'
 import { ImageUploader } from '@/components/dashboard/ImageUploader'
+import {
+  InstagramIcon,
+  FacebookIcon,
+  LinkedInIcon,
+  YouTubeIcon,
+  TwitterXIcon,
+  GoogleReviewsIcon,
+} from '@/components/icons/BrandIcons'
 
 const themeKeys = Object.keys(CARD_THEMES) as CardTheme[]
 
@@ -322,15 +330,18 @@ export default function CardEditPage() {
           <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wider">Social Media</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
-              { name: 'instagram', label: 'Instagram', placeholder: 'https://instagram.com/...' },
-              { name: 'linkedin', label: 'LinkedIn', placeholder: 'https://linkedin.com/in/...' },
-              { name: 'facebook', label: 'Facebook', placeholder: 'https://facebook.com/...' },
-              { name: 'twitter', label: 'X (Twitter)', placeholder: 'https://x.com/...' },
-              { name: 'youtube', label: 'YouTube', placeholder: 'https://youtube.com/...' },
-              { name: 'google_reviews_url', label: 'Google Reviews', placeholder: 'Google reviews URL' },
+              { name: 'instagram', label: 'Instagram', icon: InstagramIcon, placeholder: 'https://instagram.com/...' },
+              { name: 'linkedin', label: 'LinkedIn', icon: LinkedInIcon, placeholder: 'https://linkedin.com/in/...' },
+              { name: 'facebook', label: 'Facebook', icon: FacebookIcon, placeholder: 'https://facebook.com/...' },
+              { name: 'twitter', label: 'X (Twitter)', icon: TwitterXIcon, placeholder: 'https://x.com/...' },
+              { name: 'youtube', label: 'YouTube', icon: YouTubeIcon, placeholder: 'https://youtube.com/...' },
+              { name: 'google_reviews_url', label: 'Google Reviews', icon: GoogleReviewsIcon, placeholder: 'Google reviews URL' },
             ].map((social) => (
               <div key={social.name}>
-                <label className="block text-sm font-medium text-gray-700 mb-1">{social.label}</label>
+                <label className="flex items-center gap-1.5 text-sm font-medium text-gray-700 mb-1">
+                  <social.icon className="w-4 h-4 text-gray-500" />
+                  <span>{social.label}</span>
+                </label>
                 <input
                   type="url"
                   name={social.name}
