@@ -34,12 +34,8 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero */}
-      <section className="pt-32 pb-20 px-4 sm:px-6">
+      <section className="pt-36 pb-20 px-4 sm:px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-gray-100 rounded-full text-xs font-medium text-gray-600 mb-6">
-            <Zap className="w-3 h-3" />
-            Free forever. No credit card needed.
-          </div>
           <h1 className="text-4xl sm:text-6xl font-bold text-gray-900 tracking-tight leading-tight">
             Your business card,
             <br />
@@ -49,19 +45,13 @@ export default function LandingPage() {
             Create a stunning digital business card in 2 minutes. Share via QR
             code. Get leads instantly on your phone.
           </p>
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="mt-10 flex items-center justify-center">
             <Link
               href="/login"
-              className="w-full sm:w-auto px-8 py-3.5 bg-gray-900 text-white font-medium rounded-full hover:bg-gray-800 transition-colors flex items-center justify-center gap-2"
+              className="px-8 py-3.5 bg-gray-900 text-white font-medium rounded-full hover:bg-gray-800 transition-colors inline-flex items-center justify-center gap-2 shadow-sm"
             >
               Create My Card
               <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link
-              href="/c/demo"
-              className="w-full sm:w-auto px-8 py-3.5 bg-gray-100 text-gray-700 font-medium rounded-full hover:bg-gray-200 transition-colors"
-            >
-              See Demo Card
             </Link>
           </div>
         </div>
@@ -152,8 +142,8 @@ export default function LandingPage() {
               },
               {
                 icon: Zap,
-                title: "Free forever",
-                desc: "No hidden charges. Create your card and start sharing.",
+                title: "Fast & Simple",
+                desc: "Lightning fast. Create your card and start sharing.",
               },
             ].map((item) => (
               <div
@@ -178,7 +168,7 @@ export default function LandingPage() {
             Ready to go digital?
           </h2>
           <p className="text-gray-400 mb-8">
-            Create your BizCard in 2 minutes. Free forever.
+            Create your BizCard in 2 minutes.
           </p>
           <Link
             href="/login"

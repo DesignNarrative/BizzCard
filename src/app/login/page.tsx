@@ -79,9 +79,7 @@ export default function LoginPage() {
             {loading ? 'Signing in...' : 'Continue with Google'}
           </button>
 
-          <p className="text-xs text-gray-400 text-center mt-4">
-            Free forever. No credit card needed.
-          </p>
+
         </div>
 
         <p className="text-xs text-gray-400 text-center mt-6">
