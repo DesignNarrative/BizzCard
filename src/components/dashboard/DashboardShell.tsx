@@ -16,7 +16,7 @@ export function DashboardShell({ user, children }: { user: any, children: React.
 
   const navItems = [
     { name: 'Home', href: '/dashboard', icon: Home },
-    { name: 'My Card', href: '/dashboard/card/edit', icon: CreditCard },
+    { name: 'My Card', href: '/dashboard/card', icon: CreditCard },
     { name: 'Leads', href: '/dashboard/leads', icon: Users },
     { name: 'Settings', href: '/dashboard/settings', icon: Settings },
   ];

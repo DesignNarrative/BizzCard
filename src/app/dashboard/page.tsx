@@ -69,15 +69,27 @@ export default async function DashboardPage() {
         <div className="md:col-span-1 bg-white rounded-2xl shadow-sm border p-6 flex flex-col items-center">
           <h2 className="text-lg font-semibold mb-6 w-full">Your Card QR</h2>
           <QRDisplay cardId={card.id} />
-          <div className="mt-6 w-full text-center">
-            <p className="font-medium text-lg">{card.name}</p>
-            <p className="text-sm text-gray-500 mb-4">{card.designation}</p>
-            <Link 
-              href={`/dashboard/card/edit`}
-              className="text-primary text-sm font-medium hover:underline block"
-            >
-              Edit Card Details
-            </Link>
+          <div className="mt-6 w-full text-center space-y-3">
+            <div>
+              <p className="font-semibold text-lg text-gray-900">{card.name}</p>
+              <p className="text-sm text-gray-500">{card.designation}{card.company ? ` • ${card.company}` : ''}</p>
+            </div>
+
+            <div className="flex flex-col gap-2 pt-2">
+              <Link 
+                href="/dashboard/card"
+                className="w-full flex items-center justify-center gap-1.5 py-2.5 px-4 bg-gray-900 hover:bg-gray-800 text-white rounded-xl text-xs font-semibold shadow-sm transition-colors"
+              >
+                <Eye className="w-3.5 h-3.5" />
+                View How It Looks to Others
+              </Link>
+              <Link 
+                href="/dashboard/card/edit"
+                className="w-full py-2 px-4 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-xl text-xs font-semibold transition-colors"
+              >
+                Edit Card Details
+              </Link>
+            </div>
           </div>
         </div>
 

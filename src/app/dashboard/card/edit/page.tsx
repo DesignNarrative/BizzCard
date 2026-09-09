@@ -6,7 +6,7 @@ import { createClient } from '@/lib/supabase/client'
 import { nanoid } from 'nanoid'
 import { toast } from 'sonner'
 import { CARD_THEMES, type CardTheme } from '@/lib/constants'
-import { Save, Plus, Trash2, ArrowLeft, Loader2 } from 'lucide-react'
+import { Save, Plus, Trash2, ArrowLeft, Loader2, Eye } from 'lucide-react'
 import Link from 'next/link'
 import { ImageUploader } from '@/components/dashboard/ImageUploader'
 
@@ -208,14 +208,25 @@ export default function CardEditPage() {
             {isNew ? 'Create Card' : 'Edit Card'}
           </h1>
         </div>
-        <button
-          type="submit"
-          disabled={saving}
-          className="flex items-center gap-2 px-5 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-xl hover:bg-gray-800 disabled:opacity-50 transition-colors"
-        >
-          {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
-          {saving ? 'Saving...' : 'Save'}
-        </button>
+        <div className="flex items-center gap-2">
+          {!isNew && (
+            <Link
+              href="/dashboard/card"
+              className="flex items-center gap-1.5 px-3.5 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium rounded-xl transition-colors"
+            >
+              <Eye className="w-4 h-4" />
+              <span>Preview</span>
+            </Link>
+          )}
+          <button
+            type="submit"
+            disabled={saving}
+            className="flex items-center gap-2 px-5 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-xl hover:bg-gray-800 disabled:opacity-50 transition-colors shadow-sm"
+          >
+            {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
+            {saving ? 'Saving...' : 'Save'}
+          </button>
+        </div>
       </div>
 
       <div className="space-y-6 mt-4">
