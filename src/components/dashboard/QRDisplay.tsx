@@ -128,15 +128,11 @@ export function QRDisplay({ cardId, card }: QRDisplayProps) {
       ctx.font = '400 24px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
       ctx.fillText('Tap or scan to view card & save contact', width / 2, 1130)
 
-      // 10. Footer Watermark & Permanent Link
-      ctx.fillStyle = '#475569'
-      ctx.font = '500 22px monospace'
-      ctx.fillText(url.replace(/^https?:\/\//, ''), width / 2, 1260)
-
+      // 10. Footer Watermark
       ctx.fillStyle = '#64748b'
-      ctx.font = '600 18px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
-      ctx.letterSpacing = '2px'
-      ctx.fillText('BIZCARD', width / 2, 1320)
+      ctx.font = '600 20px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+      ctx.letterSpacing = '3px'
+      ctx.fillText('BIZCARD', width / 2, 1290)
 
       // 11. Trigger Download
       const pngUrl = canvas.toDataURL('image/png')
