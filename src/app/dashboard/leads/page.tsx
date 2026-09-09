@@ -1,4 +1,5 @@
 import { createClient } from '@/lib/supabase/server'
+import { createAdminClient } from '@/lib/supabase/admin'
 import { LeadsList } from '@/components/dashboard/LeadsList'
 import { Activity } from 'lucide-react'
 
@@ -24,8 +25,9 @@ export default async function LeadsPage() {
     )
   }
 
-  // Fetch leads
-  const { data: leads } = await supabase
+  // Fetch leads reliably via admin client
+  const adminClient = createAdminClient()
+  const { data: leads } = await adminClient
     .from('leads')
     .select('*')
     .eq('card_id', card.id)
@@ -34,7 +36,7 @@ export default async function LeadsPage() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold">Leads</h1>
+        <h1 className="text-2xl font-bold text-gray-900">Leads</h1>
         <div className="text-sm text-gray-500 font-medium">
           Total: {leads?.length || 0}
         </div>
@@ -43,11 +45,11 @@ export default async function LeadsPage() {
       {leads && leads.length > 0 ? (
         <LeadsList leads={leads} />
       ) : (
-        <div className="bg-white rounded-2xl border p-12 text-center shadow-sm">
+        <div className="bg-white rounded-2xl border border-gray-200 p-12 text-center shadow-sm">
           <Activity className="w-16 h-16 mx-auto text-gray-300 mb-4" />
           <h3 className="text-xl font-medium text-gray-900 mb-2">No leads yet</h3>
-          <p className="text-gray-500 max-w-md mx-auto">
-            When people view your digital business card and fill out the contact form, their details will appear here. Share your card to start getting enquiries.
+          <p className="text-gray-500 max-w-md mx-auto text-sm">
+            When people view your digital business card and submit an enquiry, their details will appear here.
           </p>
         </div>
       )}

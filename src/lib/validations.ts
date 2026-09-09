@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-const phoneRegex = /^[+]?[\d\s-()]{7,15}$/
+const phoneRegex = /^[+]?[\d\s-()]{7,25}$/
 
 export const cardFormSchema = z.object({
   name: z.string().min(1, 'Name is required').max(100),
