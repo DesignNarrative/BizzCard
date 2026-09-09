@@ -41,7 +41,7 @@ export function ShareButton({ card, theme }: { card: Card, theme: any }) {
   return (
     <button
       onClick={handleShare}
-      className={`w-full flex items-center justify-center gap-2 py-4 rounded-xl font-semibold border-2 ${theme.border} hover:bg-black/5 dark:hover:bg-white/5 transition-colors`}
+      className={`w-full flex items-center justify-center gap-2 py-4 rounded-xl font-semibold border-2 ${theme.border} hover:bg-black/5 dark:hover:bg-white/5 active:scale-[0.98] transition-all duration-150`}
     >
       {copied ? (
         <>

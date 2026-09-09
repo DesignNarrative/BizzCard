@@ -139,14 +139,14 @@ export default function SettingsPage() {
         </div>
       )}
 
-      {/* Danger Zone */}
-      <div className="bg-white p-6 rounded-2xl border border-red-100 shadow-sm">
-        <h2 className="text-lg font-semibold text-red-600 mb-4 border-b border-red-50 pb-2">Danger Zone</h2>
+      {/* Account Session */}
+      <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+        <h2 className="text-lg font-semibold text-gray-900 mb-4 border-b border-gray-100 pb-2">Session</h2>
         <button
           onClick={handleSignOut}
-          className="flex items-center space-x-2 text-red-600 font-medium px-4 py-2 hover:bg-red-50 rounded-lg transition-colors w-full justify-center border border-red-200"
+          className="flex items-center space-x-2 text-gray-700 font-medium px-4 py-2.5 hover:bg-gray-100 rounded-xl transition-all active:scale-[0.98] w-full justify-center border border-gray-200"
         >
-          <LogOut className="w-4 h-4" />
+          <LogOut className="w-4 h-4 text-gray-500" />
           <span>Sign Out</span>
         </button>
       </div>

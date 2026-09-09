@@ -35,14 +35,14 @@ export function PublicCard({ card }: { card: Card }) {
   const [showEnquiry, setShowEnquiry] = useState(false)
   const theme = CARD_THEMES[card.theme as keyof typeof CARD_THEMES] || CARD_THEMES.default
 
-  const trackInteraction = async (type: string, data?: string) => {
+  const trackInteraction = (type: string, data?: string) => {
     try {
-      await fetch('/api/interactions', {
+      fetch('/api/interactions', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ card_id: card.id, type, data }),
-      })
-    } catch (e) {
+      }).catch(() => {})
+    } catch {
       // Ignore
     }
   }
@@ -146,7 +146,7 @@ export function PublicCard({ card }: { card: Card }) {
                   target={action.target}
                   rel={action.target === '_blank' ? 'noopener noreferrer' : undefined}
                   onClick={() => trackInteraction(action.type)}
-                  className={`flex flex-col items-center justify-center p-4 rounded-2xl ${theme.buttonBg} ${theme.buttonText} hover:opacity-90 transition-opacity gap-2 group`}
+                  className={`flex flex-col items-center justify-center p-4 rounded-2xl ${theme.buttonBg} ${theme.buttonText} hover:opacity-90 active:scale-95 active:opacity-75 transition-all duration-150 gap-2 group cursor-pointer select-none shadow-sm`}
                 >
                   <action.icon className="w-6 h-6 group-hover:scale-110 transition-transform" />
                   <span className="text-sm font-medium">{action.label}</span>
@@ -165,7 +165,7 @@ export function PublicCard({ card }: { card: Card }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackInteraction(social.type)}
-                  className={`p-3 rounded-full ${theme.buttonBg} ${theme.buttonText} hover:opacity-90 transition-opacity`}
+                  className={`p-3 rounded-full ${theme.buttonBg} ${theme.buttonText} hover:opacity-90 active:scale-90 active:opacity-75 transition-all duration-150 cursor-pointer shadow-sm`}
                 >
                   <social.icon className="w-5 h-5" />
                 </a>
@@ -208,7 +208,7 @@ export function PublicCard({ card }: { card: Card }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => trackInteraction('custom_link', link.url)}
-                    className={`flex items-center justify-between p-4 rounded-xl ${theme.buttonBg} ${theme.buttonText} hover:opacity-90 transition-opacity`}
+                    className={`flex items-center justify-between p-4 rounded-xl ${theme.buttonBg} ${theme.buttonText} hover:opacity-90 active:scale-[0.98] transition-all duration-150`}
                   >
                     <span className="font-medium">{link.label}</span>
                     <ExternalLink className="w-4 h-4 opacity-50" />
@@ -222,7 +222,7 @@ export function PublicCard({ card }: { card: Card }) {
           <div className="flex flex-col gap-3 mt-4">
              <button
                 onClick={() => setShowEnquiry(true)}
-                className={`w-full flex items-center justify-center gap-2 py-4 rounded-xl font-semibold border-2 ${theme.border} hover:bg-white/5 transition-colors`}
+                className={`w-full flex items-center justify-center gap-2 py-4 rounded-xl font-semibold border-2 ${theme.border} hover:bg-white/5 active:scale-[0.98] transition-all duration-150 shadow-sm`}
               >
                 <Send className="w-5 h-5" />
                 Send Enquiry

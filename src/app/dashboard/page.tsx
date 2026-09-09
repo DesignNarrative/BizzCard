@@ -75,7 +75,7 @@ export default async function DashboardPage() {
         {/* Card Preview & QR */}
         <div className="md:col-span-1 bg-white rounded-2xl shadow-sm border border-gray-200 p-6 flex flex-col items-center">
           <h2 className="text-lg font-semibold mb-6 w-full text-gray-900">Your Card QR</h2>
-          <QRDisplay cardId={card.id} />
+          <QRDisplay cardId={card.id} card={card} />
           
           <div className="mt-6 w-full text-center space-y-3">
             <div>
